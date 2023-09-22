@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS  PESSOA (
+  ID_PESSOA SERIAL NOT null ,
+  NM_PESSOA VARCHAR(100) NOT NULL,
+  NR_CPF VARCHAR(11) NULL,
+  NR_RG VARCHAR(8) NULL,
+  TP_GENERO CHAR(1) NULL,
+  DT_NASCIMENTO DATE NULL,
+  PRIMARY KEY (ID_PESSOA));
+
+INSERT INTO public.pessoa (nm_pessoa, nr_cpf, nr_rg, tp_genero, dt_nascimento)
+	VALUES('Wesley Antunes', '12661541918', '', 'M', '2000-12-12');
