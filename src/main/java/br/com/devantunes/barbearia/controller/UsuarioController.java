@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/pessoas")
-public class PessoaController {
+public class UsuarioController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

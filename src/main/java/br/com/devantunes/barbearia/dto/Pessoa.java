@@ -1,39 +1,28 @@
-package br.com.devantunes.barbearia.model;
+package br.com.devantunes.barbearia.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 
-@Entity
-@Table(name = "pessoa")
 public class Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_PESSOA")
 	private Integer id;
 	
-	@Column(name = "NM_PESSOA")
+	@NotBlank(message = "O nome é um campo obrigatório")
 	private String nome;
 	
-	@Column(name = "NR_CPF")
 	private String cpf;
 	
-	@Column(name = "NR_RG")
 	private String rg;
 	
-	@Column(name = "TP_GENERO")
+	@NotBlank(message = "O genero é um campo obrigatório")
 	private Character genero;
 	
-	@Column(name = "DT_NASCIMENTO")
+	@Past(message = "A data de nascimento deve ser anterior ao dia de hoje")
 	private LocalDate dtNascimento;
 	
 	public Integer getId() {

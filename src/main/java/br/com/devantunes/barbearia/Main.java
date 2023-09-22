@@ -22,7 +22,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in br.com.devantunes.barbearia package
-        final ResourceConfig rc = new ResourceConfig().packages("br.com.devantunes.barbearia.model.controller");
+        final ResourceConfig rc = new ResourceConfig().packages("br.com.devantunes.barbearia.controller");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
