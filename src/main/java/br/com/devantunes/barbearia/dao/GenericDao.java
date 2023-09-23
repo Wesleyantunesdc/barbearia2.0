@@ -1,5 +1,6 @@
 package br.com.devantunes.barbearia.dao;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,7 +16,8 @@ public class GenericDao {
 		this.em = em;
 	}
 	
-	public <T> Object getSingle(SQLBuilder sql, Class<?> classe) {
+	@SuppressWarnings("unchecked")
+	public <T> T getSingle(SQLBuilder sql, Class<T> classe) {
 		Query query = em.createNativeQuery(sql.getScript(), classe);
 		
 		Map<String, Object> parametros = sql.getParametros();
@@ -25,7 +27,21 @@ public class GenericDao {
 			query.setParameter(c, parametros.get(c));
 		}
 		
-		return query.getSingleResult();
+		return (T) query.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getList(SQLBuilder sql, Class<T> classe) {
+		Query query = em.createNativeQuery(sql.getScript(), classe);
+		
+		Map<String, Object> parametros = sql.getParametros();
+		Set<String> chaves = parametros.keySet();
+		
+		for(String c: chaves) {
+			query.setParameter(c, parametros.get(c));
+		}
+		
+		return query.getResultList();
 	}
 	
 	public void persist(Object obj) {

@@ -1,6 +1,6 @@
 package br.com.devantunes.barbearia.dao;
 
-import br.com.devantunes.barbearia.model.Usuario;
+import br.com.devantunes.barbearia.model.entity.Usuario;
 import br.com.devantunes.barbearia.util.HibernateUtil;
 import br.com.devantunes.barbearia.util.SQLBuilder;
 import jakarta.persistence.EntityManager;

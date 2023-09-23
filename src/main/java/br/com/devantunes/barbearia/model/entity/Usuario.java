@@ -1,4 +1,4 @@
-package br.com.devantunes.barbearia.model;
+package br.com.devantunes.barbearia.model.entity;
 
 import java.io.Serializable;
 
