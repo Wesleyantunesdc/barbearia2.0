@@ -1,7 +1,7 @@
 package br.com.devantunes.barbearia.model.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pessoa")
+@Table(name = "PESSOA")
 public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -33,9 +33,9 @@ public class Pessoa implements Serializable {
 	@Column(name = "TP_GENERO")
 	private Character genero;
 
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")  
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(name = "DT_NASCIMENTO")
-	private LocalDateTime dtNascimento;
+	private LocalDate dtNascimento;
 
 	public Integer getId() {
 		return id;
@@ -77,12 +77,16 @@ public class Pessoa implements Serializable {
 		this.genero = genero;
 	}
 
-	public LocalDateTime getDtNascimento() {
+	public LocalDate getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(LocalDateTime dtNascimento) {
+	public void setDtNascimento(LocalDate dtNascimento) {
 		this.dtNascimento = dtNascimento;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override

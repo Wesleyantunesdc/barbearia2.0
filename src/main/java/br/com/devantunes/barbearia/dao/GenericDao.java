@@ -57,4 +57,18 @@ public class GenericDao {
 		}
 	}
 	
+	
+	public void merge(Object obj) {
+		try {
+			em.getTransaction().begin();
+			em.merge(obj);
+			em.getTransaction().commit();
+		}catch (Exception e) {
+			if(em.getTransaction().isActive()) {
+				em.getTransaction().rollback();
+			}
+			em.close();
+		}
+	}
+	
 }

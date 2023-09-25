@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 
-public class Pessoa implements Serializable{
+public class PessoaDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 

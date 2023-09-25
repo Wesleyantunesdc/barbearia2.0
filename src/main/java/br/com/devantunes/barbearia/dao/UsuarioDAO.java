@@ -17,11 +17,18 @@ public class UsuarioDAO extends GenericDao {
 
 	public Usuario buscar(String username, String senha) {
 		SQLBuilder sql = new SQLBuilder();
+		sql.append("SELECT P.nr_cpf, P.nm_pessoa  ");
+		sql.append("FROM PESSOA P ");
+		
+		
+		
+		
 		sql.append("SELECT * FROM USUARIO U ");
 		sql.append("WHERE U.NM_USERNAME = :username ");
 		sql.append("AND U.VL_SENHA = :senha ");
 		sql.setParameter("username", username);
 		sql.setParameter("senha", senha);
+		
 		
 		return (Usuario) getSingle(sql, Usuario.class);
 	}
