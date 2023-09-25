@@ -59,7 +59,7 @@ public class PessoaController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response salvar(Pessoa pessoa) {
+	public Response cadastrar(Pessoa pessoa) {
 		try {
 			PessoaBO bo = new PessoaBO();
 			bo.cadastrar(pessoa);
