@@ -29,4 +29,12 @@ public class AgendamentoDAO extends GenericDao {
 		sql.append("ORDER BY A.DH_AGENDAMENTO");
 		return getList(sql, Agendamento.class);
 	}
+	
+	
+	public Agendamento buscar(Integer id) {
+		SQLBuilder sql = montarBase();
+		sql.append("WHERE A.ID_AGENDAMENTO = :idAgendamento");
+		sql.setParameter("idAgendamento", id);
+		return getSingle(sql, Agendamento.class);
+	}
 }

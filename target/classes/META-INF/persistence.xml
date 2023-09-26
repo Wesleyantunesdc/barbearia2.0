@@ -11,11 +11,12 @@
 				value="org.postgresql.Driver" />
 
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://localhost:5432/postgres" />
+			
+				value="jdbc:postgresql://localhost:5432/Barbearia" />
 
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			
-			<property name="javax.persistence.jdbc.password" value="280101" />
+			<property name="javax.persistence.jdbc.password" value="joaogame99" />
 
 
 			<property name="hibernate.show_sql" value="true" />
