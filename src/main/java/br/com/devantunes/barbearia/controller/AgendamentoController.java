@@ -10,6 +10,7 @@ import br.com.devantunes.barbearia.model.entity.Agendamento;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
@@ -35,12 +36,34 @@ public class AgendamentoController {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 	}
-	
+
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response cadastrar(AgendamentoDto dto) {
-		return null;
+	public Response cadastrar(AgendamentoDto agendamento) {
+		try {
+			AgendamentoBO bo = new AgendamentoBO();
+			bo.cadastrar(agendamento);
+			return Response.ok().status(Status.CREATED).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()
+					).build();
+		}
+	}
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response editar(AgendamentoDto dto) {
+		try {
+			AgendamentoBO bo = new AgendamentoBO();
+			bo.editar(dto);
+			return Response.ok().status(Status.OK).build();
+		} catch (Exception e) {
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+
+		}
+
 	}
 
 }
