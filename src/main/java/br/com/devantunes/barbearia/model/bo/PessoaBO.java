@@ -13,6 +13,7 @@ public class PessoaBO {
 			PessoaDAO dao = new PessoaDAO();
 			return dao.buscar();
 		} catch (Exception e) {
+			
 			throw new Exception("Erro ao buscar pessoas: " + e.getMessage());
 		}
 	}

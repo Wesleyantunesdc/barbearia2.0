@@ -5,7 +5,7 @@ import br.com.devantunes.barbearia.util.HibernateUtil;
 import br.com.devantunes.barbearia.util.SQLBuilder;
 import jakarta.persistence.EntityManager;
 
-public class UsuarioDAO extends GenericDao {
+public class UsuarioDAO extends GenericDAO<Integer, Usuario> {
 
 	public UsuarioDAO() {
 		super(HibernateUtil.getEntityManager());
@@ -14,21 +14,20 @@ public class UsuarioDAO extends GenericDao {
 	public UsuarioDAO(EntityManager em) {
 		super(em);
 	}
+		
+	public Usuario buscar(Integer id) {
+		return getById(id);
+	}
 
-	public Usuario buscar(String username, String senha) {
+	public Usuario buscar(String username, String senha) throws Exception {
 		SQLBuilder sql = new SQLBuilder();
 		sql.append("SELECT P.nr_cpf, P.nm_pessoa  ");
 		sql.append("FROM PESSOA P ");
-		
-		
-		
-		
 		sql.append("SELECT * FROM USUARIO U ");
 		sql.append("WHERE U.NM_USERNAME = :username ");
 		sql.append("AND U.VL_SENHA = :senha ");
 		sql.setParameter("username", username);
 		sql.setParameter("senha", senha);
-		
 		
 		return (Usuario) getSingle(sql, Usuario.class);
 	}

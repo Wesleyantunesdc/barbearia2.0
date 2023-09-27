@@ -3,6 +3,9 @@ package br.com.devantunes.barbearia.controller;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import br.com.devantunes.barbearia.dto.PessoaDto;
 import br.com.devantunes.barbearia.model.bo.PessoaBO;
@@ -21,6 +24,8 @@ import jakarta.ws.rs.core.Response.Status;
 @Path("/pessoas")
 public class PessoaController {
 
+	static final Logger logger = LogManager.getLogger(PessoaController.class.getName());
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response buscar() {
@@ -45,13 +50,13 @@ public class PessoaController {
 		try {
 			PessoaBO bo = new PessoaBO();
 			Pessoa pessoa = bo.buscar(id);
-
 			if (pessoa != null) {
 				return Response.ok().entity(pessoa).build();
 			} else {
 				return Response.status(Status.NO_CONTENT).build();
 			}
 		} catch (Exception e) {
+			logger.error("Erro ao buscar pessoa pelo id: "+ e.getMessage());
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 	}

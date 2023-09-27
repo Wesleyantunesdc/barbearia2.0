@@ -7,7 +7,7 @@ import br.com.devantunes.barbearia.util.HibernateUtil;
 import br.com.devantunes.barbearia.util.SQLBuilder;
 import jakarta.persistence.EntityManager;
 
-public class PessoaDAO extends GenericDao{
+public class PessoaDAO extends GenericDAO<Integer, Pessoa>{
 	
 	public PessoaDAO() {
 		super(HibernateUtil.getEntityManager());
@@ -29,7 +29,7 @@ public class PessoaDAO extends GenericDao{
 	}
 	
 	
-	public Pessoa buscar(Integer id) {
+	public Pessoa buscar(Integer id) throws Exception {
 		SQLBuilder sql = montarBase();
 		sql.append("WHERE P.ID_PESSOA = :idPessoa ");
 		sql.setParameter("idPessoa", id);
