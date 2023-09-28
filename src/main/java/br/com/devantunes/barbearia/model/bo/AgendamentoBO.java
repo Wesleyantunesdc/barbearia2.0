@@ -5,10 +5,11 @@ import java.util.List;
 import br.com.devantunes.barbearia.dao.AgendamentoDAO;
 import br.com.devantunes.barbearia.dto.AgendamentoDto;
 import br.com.devantunes.barbearia.model.entity.Agendamento;
+import br.com.devantunes.barbearia.model.pojo.AgendamentoPojo;
 
 public class AgendamentoBO {
 
-	public List<Agendamento> buscar() throws Exception {
+	public List<AgendamentoPojo> buscar() throws Exception {
 		try {
 			AgendamentoDAO dao = new AgendamentoDAO();
 			return dao.buscar();
@@ -17,7 +18,7 @@ public class AgendamentoBO {
 		}
 	}
 
-	public Agendamento buscar(Integer id) throws Exception {
+	public AgendamentoPojo buscar(Integer id) throws Exception {
 		if (id == null) {
 			throw new Exception("É obrigatorio informar o id");
 
@@ -65,7 +66,7 @@ public class AgendamentoBO {
 		Agendamento obj = new Agendamento();
 		obj.setId(dto.getId());
 		obj.setDataHora(dto.getDataHora());
-		obj.setIdPessoa(dto.getIdPessoa());
+		obj.setPessoa(null);
 
 		return obj;
 

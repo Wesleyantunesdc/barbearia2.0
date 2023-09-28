@@ -20,7 +20,7 @@ public class AgendamentoDto implements Serializable {
 	public AgendamentoDto(Agendamento a) {
 		this.id = a.getId();
 		this.dataHora = a.getDataHora();
-		this.idPessoa = a.getIdPessoa();
+		this.idPessoa = a.getPessoa().getId();
 	}
 
 	public Integer getId() {

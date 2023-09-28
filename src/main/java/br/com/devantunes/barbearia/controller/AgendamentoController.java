@@ -6,7 +6,7 @@ import org.apache.commons.collections4.CollectionUtils;
 
 import br.com.devantunes.barbearia.dto.AgendamentoDto;
 import br.com.devantunes.barbearia.model.bo.AgendamentoBO;
-import br.com.devantunes.barbearia.model.entity.Agendamento;
+import br.com.devantunes.barbearia.model.pojo.AgendamentoPojo;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -25,7 +25,7 @@ public class AgendamentoController {
 	public Response buscar() {
 		try {
 			AgendamentoBO bo = new AgendamentoBO();
-			List<Agendamento> lstAgendamento = bo.buscar();
+			List<AgendamentoPojo> lstAgendamento = bo.buscar();
 
 			if (CollectionUtils.isNotEmpty(lstAgendamento)) {
 				return Response.ok().entity(lstAgendamento).build();

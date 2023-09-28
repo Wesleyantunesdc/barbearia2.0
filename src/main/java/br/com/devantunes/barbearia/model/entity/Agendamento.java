@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,8 +23,9 @@ public class Agendamento implements Serializable {
 	@Column(name = "ID_AGENDAMENTO")
 	private Integer id;
 
-	@Column(name = "ID_PESSOA")
-	private Integer idPessoa;
+	@ManyToOne
+	@JoinColumn(name = "ID_PESSOA", referencedColumnName = "ID_PESSOA")
+	private Pessoa pessoa;
 
 	@Column(name = "DH_AGENDAMENTO")
 	private LocalDateTime dataHora;
@@ -35,12 +38,12 @@ public class Agendamento implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getIdPessoa() {
-		return idPessoa;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	public void setIdPessoa(Integer idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	public LocalDateTime getDataHora() {
