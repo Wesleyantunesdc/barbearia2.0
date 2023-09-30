@@ -2,8 +2,11 @@ package br.com.devantunes.barbearia.model.entity;
 
 import java.io.Serializable;
 
+import br.com.devantunes.barbearia.model.enums.TipoContato;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,13 +23,14 @@ public class Contato implements Serializable {
 	@Column(name = "ID_CONTATO")
 	private Integer id;
 
+	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "TP_CONTATO")
-	private String tipo;
+	private TipoContato tipoContato;
 
 	@Column(name = "DS_CONTATO")
 	private String descricao;
 
-	@Column(name = "FL_ATIVO")
+	@Column(name = "FL_ATIVO", nullable = false)
 	private Integer isAtivo;
 
 	@Column(name = "ID_PESSOA", nullable = false)
@@ -40,12 +44,12 @@ public class Contato implements Serializable {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoContato getTipoContato() {
+		return tipoContato;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoContato(TipoContato tipoContato) {
+		this.tipoContato = tipoContato;
 	}
 
 	public String getDescricao() {

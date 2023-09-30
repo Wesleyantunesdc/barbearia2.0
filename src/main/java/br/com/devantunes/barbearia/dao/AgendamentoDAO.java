@@ -33,6 +33,5 @@ public class AgendamentoDAO extends GenericDAO<Integer, Agendamento> {
 		sql.append("INNER JOIN pessoa p ON P.id_pessoa  = A.id_pessoa ");
 		sql.append("WHERE a.id_agendamento  = :id ");
 		return getSingle(sql, AgendamentoPojo.class);
-//		return getById(id);
 	}
 }

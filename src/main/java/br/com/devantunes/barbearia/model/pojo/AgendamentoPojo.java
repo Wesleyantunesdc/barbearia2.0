@@ -12,38 +12,57 @@ public class AgendamentoPojo {
 	@Id
 	@Column(name = "ID_AGENDAMENTO")
 	private Integer id;
-	
+
 	@Column(name = "DH_AGENDAMENTO")
 	private LocalDateTime dataHora;
-	
+
 	@Column(name = "ID_PESSOA")
 	private Integer idPessoa;
-	
+
 	@Column(name = "NM_PESSOA")
 	private String nome;
-	
+
+	@Column(name = "NR_TELEFONE")
+	private String telefone;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public LocalDateTime getDataHora() {
 		return dataHora;
 	}
+
 	public void setDataHora(LocalDateTime dataHora) {
 		this.dataHora = dataHora;
 	}
+
 	public Integer getIdPessoa() {
 		return idPessoa;
 	}
+
 	public void setIdPessoa(Integer idPessoa) {
 		this.idPessoa = idPessoa;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 }

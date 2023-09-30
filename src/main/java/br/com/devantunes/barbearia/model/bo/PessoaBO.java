@@ -8,6 +8,9 @@ import br.com.devantunes.barbearia.model.entity.Pessoa;
 
 public class PessoaBO {
 
+	//Modificar a classe para trabalhar com dto
+	
+	
 	public List<Pessoa> buscar() throws Exception {
 		try {
 			PessoaDAO dao = new PessoaDAO();
